@@ -326,9 +326,51 @@ section h2::after {
     color: var(--primary-color);
 }
 
-/* SEÇÃO DE DIRETORAS */
-.directors-grid {
+/* ============================================= */
+/* SEÇÃO DE DIRETORAS - ESTILOS COMPLETOS */
+/* ============================================= */
+
+.team {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+    position: relative;
+}
+
+.team .container {
+    position: relative;
+    z-index: 2;
+}
+
+.team h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.team h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: var(--secondary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.team-description {
+    text-align: center;
     max-width: 800px;
+    margin: 0 auto 50px;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.directors-grid {
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -337,58 +379,150 @@ section h2::after {
 }
 
 .director-card {
-    max-width: 350px;
     width: 100%;
-    background: white;
-    border-radius: 10px;
+    max-width: 380px;
+    background: var(--card-bg);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    position: relative;
 }
 
 .director-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 }
 
 .director-photo {
-    height: 400px;
+    height: 420px;
     width: 100%;
     background-size: cover;
     background-position: top center;
-    border-radius: 10px 10px 0 0;
+    background-repeat: no-repeat;
 }
 
 .director-info {
-    padding: 25px;
+    padding: 30px;
     text-align: center;
 }
 
 .director-name {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .director-title {
     color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    font-size: 0.95rem;
+    position: relative;
+    display: inline-block;
+}
+
+.director-title::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: var(--secondary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.specialty-box {
+    background-color: var(--accent-color);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.director-card:hover .specialty-box {
+    transform: scale(1.02);
+}
+
+.specialty-title {
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.specialty-text {
     font-weight: 700;
-    margin-bottom: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.expertise-box {
+    background-color: rgba(172, 212, 204, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(172, 212, 204, 0.3);
+}
+
+.expertise-title {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.expertise-list {
+    list-style: none; /* Isso já remove os pontos padrão */
+    padding-left: 0;
+    text-align: left;
+    margin: 0;
+}
+
+.expertise-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--primary-color);
+    line-height: 1.5;
+    position: relative;
+    padding-left: 10px;
+}
+
+.expertise-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    display: none;
+    
+}
+
+.expertise-list i {
+    color: var(--secondary-color);
+    margin-top: 4px;
     font-size: 0.9rem;
 }
 
-.director-specialty {
-    color: var(--primary-color);
-    margin-bottom: 8px;
-}
-
-.director-expertise {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
+/* Instagram Link */
 .instagram-link {
     display: inline-flex;
     align-items: center;
@@ -396,12 +530,22 @@ section h2::after {
     color: var(--primary-color);
     text-decoration: none;
     transition: all 0.3s ease;
-    margin-top: 15px;
+    margin-top: 20px;
+    padding: 8px 15px;
+    border-radius: 30px;
+    background-color: rgba(244, 195, 190, 0.2);
+    border: 1px solid var(--secondary-color);
 }
+
+.instagram-link:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+
 
 .instagram-link i {
     font-size: 1.2rem;
-    color: var(--primary-color);
     transition: all 0.3s ease;
 }
 
@@ -409,15 +553,63 @@ section h2::after {
     padding-bottom: 2px;
     border-bottom: 1px solid transparent;
     transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .instagram-link:hover .instagram-username {
     border-bottom-color: var(--primary-color);
 }
 
-.instagram-link:hover,
-.instagram-link:hover i {
-    color: var(--primary-color);
+/* Responsividade */
+@media (max-width: 992px) {
+    .directors-grid {
+        gap: 30px;
+    }
+    
+    .director-card {
+        max-width: 340px;
+    }
+    
+    .director-photo {
+        height: 380px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team {
+        padding: 60px 0;
+    }
+    
+    .directors-grid {
+        gap: 25px;
+    }
+    
+    .director-card {
+        max-width: 100%;
+    }
+    
+    .director-photo {
+        height: 350px;
+    }
+    
+    .director-info {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .director-photo {
+        height: 320px;
+    }
+    
+    .specialty-box,
+    .expertise-box {
+        padding: 15px;
+    }
+    
+    .director-name {
+        font-size: 1.3rem;
+    }
 }
 
 /* DEPOIMENTOS */
@@ -1033,108 +1225,124 @@ footer {
         </div>
     </section>
 
-    <!-- SEÇÃO DE SERVIÇOS -->
-    <section id="services" class="services">
+   <!-- SEÇÃO DE SERVIÇOS -->
+<section id="services" class="services">
     <div class="container">
         <h2>Nossos serviços especializados</h2>
         <div class="services-grid">
-        <!-- Serviço 1 - Psicologia -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-brain"></i>
+            <!-- Serviço 1 - Psicologia -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Psicologia Infantil</h3>
+                <p>Avaliação e intervenção psicológica para crianças, utilizando abordagens como TCC (Terapia Cognitivo-Comportamental).</p>
             </div>
-            <h3>Psicologia Infantil</h3>
-            <p>Avaliação e intervenção psicológica para crianças, utilizando abordagens como TCC (Terapia Cognitivo-Comportamental).</p>
-        </div>
-        
-        <!-- Serviço 2 - Psicopedagogia -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-book-open"></i>
+            
+            <!-- Serviço 2 - Psicopedagogia -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Psicopedagogia</h3>
+                <p>Diagnóstico e intervenção nas dificuldades de aprendizagem, promovendo o desenvolvimento cognitivo e educacional.</p>
             </div>
-            <h3>Psicopedagogia</h3>
-            <p>Diagnóstico e intervenção nas dificuldades de aprendizagem, promovendo o desenvolvimento cognitivo e educacional.</p>
-        </div>
-        
-        <!-- Serviço 3 - Fonoaudiologia -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-comments"></i>
+            
+            <!-- Serviço 3 - Fonoaudiologia -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Fonoaudiologia</h3>
+                <p>Atendimento especializado para desenvolvimento da linguagem, fala, comunicação e CAA (Comunicação Alternativa Aumentativa).</p>
             </div>
-            <h3>Fonoaudiologia</h3>
-            <p>Atendimento especializado para desenvolvimento da linguagem, fala, comunicação e CAA (Comunicação Alternativa Aumentativa).</p>
-        </div>
-        
-        <!-- Serviço 4 - Terapia Ocupacional -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-hands"></i>
+            
+            <!-- Serviço 4 - Terapia Ocupacional -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hands"></i>
+                </div>
+                <h3>Terapia Ocupacional</h3>
+                <p>Intervenções para desenvolvimento das habilidades motoras e sensoriais, com abordagens como IS (Integração Sensorial).</p>
             </div>
-            <h3>Terapia Ocupacional</h3>
-            <p>Intervenções para desenvolvimento das habilidades motoras e sensoriais, com abordagens como IS (Integração Sensorial).</p>
-        </div>
-        
-        <!-- Serviço 5 - Psicomotricidade -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-child"></i>
+            
+            <!-- Serviço 5 - Psicomotricidade -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-child"></i>
+                </div>
+                <h3>Psicomotricidade</h3>
+                <p>Estimulação psicomotora para auxiliar no desenvolvimento global da criança, trabalhando corpo e mente.</p>
             </div>
-            <h3>Psicomotricidade</h3>
-            <p>Estimulação psicomotora para auxiliar no desenvolvimento global da criança, trabalhando corpo e mente.</p>
-        </div>
-        
-        <!-- Serviço 6 - ABA/Denver -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-star"></i>
+            
+            <!-- Serviço 6 - ABA/Denver/Intervenção consolidado -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>ABA | Denver | Intervenção</h3>
+                <p>Intervenções baseadas em ABA (Análise do Comportamento Aplicada), Modelo Denver e estratégias de intervenção precoce para desenvolvimento infantil.</p>
             </div>
-            <h3>ABA | Denver</h3>
-            <p>Intervenções baseadas em ABA (Análise do Comportamento Aplicada) e Modelo Denver para desenvolvimento infantil.</p>
-        </div>
 
-        <!-- Serviço 7 - Orientação Parental -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-users"></i>
+            <!-- Serviço 7 - Orientação Parental -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Orientação Parental</h3>
+                <p>Apoio e orientação para famílias, com estratégias para lidar com desafios do desenvolvimento infantil e fortalecer vínculos.</p>
             </div>
-            <h3>Orientação Parental</h3>
-            <p>Apoio e orientação para famílias, com estratégias para lidar com desafios do desenvolvimento infantil e fortalecer vínculos.</p>
-        </div>
-        
-        <!-- Serviço 8 - Grupos de Habilidades Sociais -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-handshake"></i>
+            
+            <!-- Serviço 8 - Grupos de Habilidades Sociais -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Grupos de Habilidades Sociais</h3>
+                <p>Atividades em grupo para desenvolvimento de competências sociais, comunicação e interação entre pares.</p>
             </div>
-            <h3>Grupos de Habilidades Sociais</h3>
-            <p>Atividades em grupo para desenvolvimento de competências sociais, comunicação e interação entre pares.</p>
-        </div>
 
-        <!-- Serviço 9 - Intervenção Precoce -->
-        <div class="service-card">
-            <div class="service-icon">
-            <i class="fas fa-baby"></i>
+            <!-- Serviço 9 - Palestras e Workshops -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Palestras e Workshops</h3>
+                <p>Eventos educativos para pais, educadores e profissionais sobre desenvolvimento infantil, inclusão e estratégias de apoio.</p>
             </div>
-            <h3>Intervenção Precoce</h3>
-            <p>Estimulação essencial nos primeiros anos de vida para promover desenvolvimento saudável e prevenir atrasos.</p>
-        </div>
         </div>
     </div>
-    </section>
+</section>
 
-  <!-- SEÇÃO DAS DIRETORAS - VERSÃO SIMPLIFICADA -->
-<section id="team" class="team" style="padding-top: 20px;">
+ <!-- SEÇÃO DAS DIRETORAS - VERSÃO ATUALIZADA -->
+<section id="team" class="team">
     <div class="container">
         <h2>Nossas diretoras</h2>
+        <p class="team-description">Nossas diretoras possuem atuação especializada e formação de excelência para oferecer o melhor atendimento ao seu filho.</p>
+        
         <div class="directors-grid">
             <!-- Diretora 1 -->
             <div class="director-card">
                 <div class="director-photo" style="background-image: url('/imagens/manu.jpg');"></div>
                 <div class="director-info">
-                    <h3 class="director-name">Emanuela Schmitd</h3>
-                    <p class="director-title">Diretora Sócia</p>
-                    <p class="director-specialty">Psicopedagoga</p>
-                    <p class="director-expertise">Especialista em Integração Sensorial</p>
+                    <h3 class="director-name">Emanuela Schmidt</h3>
+                    <p class="director-title">Diretora Técnica</p>
+                    
+                    <div class="specialty-box">
+                        <h4 class="specialty-title"><i class="fas fa-user-md"></i> Atuação Principal</h4>
+                        <p class="specialty-text">Neuropsicopedagoga</p>
+                    </div>
+                    
+                    <div class="expertise-box">
+                        <h4 class="expertise-title"><i class="fas fa-star"></i> Especializações</h4>
+                        <ul class="expertise-list">
+                            <li><i class="fas fa-check"></i> Mestre em Educação</li>
+                            <li><i class="fas fa-check"></i> Especialista em Transtornos do Neurodesenvolvimento</li>
+                            <li><i class="fas fa-check"></i> Especialista em Análise do Comportamento Aplicada (ABA)</li>
+                            <li><i class="fas fa-check"></i> Experiência em Modelo Denver</li>
+                        </ul>
+                    </div>
+                    
                     <a href="https://www.instagram.com/neuropp.emanuela/" target="_blank" class="instagram-link" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                         <span class="instagram-username">neuropp.emanuela</span>
@@ -1147,9 +1355,23 @@ footer {
                 <div class="director-photo" style="background-image: url('/imagens/rafa.jpg');"></div>
                 <div class="director-info">
                     <h3 class="director-name">Rafaela Felin</h3>
-                    <p class="director-title">Diretora Sócia</p>
-                    <p class="director-specialty">Terapeuta Ocupacional</p>
-                    <p class="director-expertise">Especialista em TEA</p>
+                    <p class="director-title">Diretora Administrativa</p>
+                    
+                    <div class="specialty-box">
+                        <h4 class="specialty-title"><i class="fas fa-user-md"></i> Atuação Principal</h4>
+                        <p class="specialty-text">Terapeuta Ocupacional</p>
+                    </div>
+                    
+                    <div class="expertise-box">
+                        <h4 class="expertise-title"><i class="fas fa-star"></i> Especializações</h4>
+                        <ul class="expertise-list">
+                            <li><i class="fas fa-check"></i> Certificação Internacional em Integração Sensorial de Ayres</li>
+                            <li><i class="fas fa-check"></i> Especialista em Transtornos do Neurodesenvolvimento</li>
+                            <li><i class="fas fa-check"></i> Especialista em Análise do Comportamento Aplicada (ABA)</li>
+                            <li><i class="fas fa-check"></i> Experiência em Comunicação Alternativa (CAA)</li>
+                        </ul>
+                    </div>
+                    
                     <a href="https://www.instagram.com/rafaela.terapeutaocupacional/" target="_blank" class="instagram-link" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                         <span class="instagram-username">rafaela.terapeutaocupacional</span>
@@ -1225,19 +1447,25 @@ footer {
     </section>
 
     <!-- SEÇÃO DE VÍDEO DEPOIMENTO -->
-    <section class="video-testimonial" style="padding-top: 20px;">
+<section class="video-testimonial" style="padding-top: 20px;">
     <div class="container">
         <h2>Depoimento em vídeo</h2>
-        <div class="video-container" style="margin-top: 50px;">
-        <!-- Substitua o src pelo caminho do seu vídeo -->
-        <video controls style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-            <source src="/imagens/DEPOIMENTO.mp4" type="video/mp4">
-            Seu navegador não suporta o elemento de vídeo.
-        </video>
-        <p style="text-align: center; margin-top: 20px; font-style: italic; color: var(--primary-color);">Depoimento da família Panosso - pais do João, 3 anos</p>
+        <div class="video-container" style="margin: 50px auto 0; max-width: 800px;">
+            <!-- Player do YouTube responsivo -->
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                    src="https://www.youtube.com/embed/XKH16aGbOSE?si=VlvhDA1Gi5LLnhqD" 
+                    title="Depoimento Sognare Clínica" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-style: italic; color: var(--primary-color);">Depoimento da família Panosso - pais do João, 3 anos</p>
         </div>
     </div>
-    </section>
+</section>
     <!-- SEÇÃO SOBRE -->
 <section id="about" class="about" style="padding-top: 20px;">
     <div class="container">
