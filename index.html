@@ -1,6 +1,9 @@
 <!DOCTYPE html>
     <html lang="pt-BR">
     <head>
+        <link rel="preload" href="/imagens/atendimento1.webp" as="image">
+<link rel="preload" href="/imagens/atendimento3.webp" as="image">
+<link rel="preload" href="/imagens/atendimento4.webp" as="image">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Sognare - Clínica de Desenvolvimento Infantil</title>
@@ -376,6 +379,13 @@ section h2::after {
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
+}
+
+.hero-slide {
+    transition: opacity 0.5s ease;
+}
+.hero-slide:not(.active) {
+    opacity: 0;
 }
 
 .director-card {
@@ -1203,9 +1213,9 @@ footer {
     <!-- SEÇÃO HERO COM CARROSSEL -->
     <section class="hero">
         <div class="hero-slideshow">
-        <div class="hero-slide active" style="background-image: url('/imagens/atentimento1.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('/imagens/atendimento3.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('/imagens/atendimento4.jpg');"></div>
+        <div class="hero-slide active" style="background-image: url('/imagens/atentimento1.webp');"></div>
+        <div class="hero-slide" style="background-image: url('/imagens/atendimento3.webp');"></div>
+        <div class="hero-slide" style="background-image: url('/imagens/atendimento4.webp');"></div>
         
         </div>
         
@@ -1801,6 +1811,26 @@ faqQuestions.forEach(question => {
         } else {
             answer.style.maxHeight = '0';
         }
+
+        // No seu script.js
+document.addEventListener("DOMContentLoaded", function() {
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    
+    // Carrega a primeira imagem
+    const firstSlide = heroSlides[0];
+    const img = new Image();
+    img.src = firstSlide.style.backgroundImage.replace('url("', '').replace('")', '');
+    
+    // Carrega as outras após 1s (opcional)
+    setTimeout(() => {
+        heroSlides.forEach((slide, index) => {
+            if (index !== 0) {
+                const img = new Image();
+                img.src = slide.style.backgroundImage.replace('url("', '').replace('")', '');
+            }
+        });
+    }, 1000);
+});
         
         // Close other open answers
         faqQuestions.forEach(otherQuestion => {
